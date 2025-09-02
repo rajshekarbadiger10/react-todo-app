@@ -1,12 +1,13 @@
-import { useState } from "react" //auto included by vs code
+import { useState } from "react"
+import { v4 as uuidv4 } from 'uuid'; //auto included by vs code
 
 export default function TodoList() {
 
-    let[todos,settodos] = useState(["sample tasks"])
+    let[todos,settodos] = useState([{task: "sample-task", id:uuidv4()}])
     let [newTodo,setNewTodo] = useState("");
 
     let addNewTask = () => {
-        settodos([...todos, newTodo]);
+        settodos([...todos, {task: newTodo, id:uuidv4()}]);
         setNewTodo("");
     };
 
@@ -29,9 +30,9 @@ export default function TodoList() {
             <h4>tasks todo</h4>
             <ul>
                 {todos.map((todo) => (
-                   <li>{todo}</li>
+                   <li key={todo.id}>{todo.task}</li>
                 ))}
             </ul>
         </div>
     )
-}
+} 
