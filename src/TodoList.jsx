@@ -31,7 +31,7 @@ export default function TodoList() {
             };
            })
         );
-    };
+    }; 
 
     return(
         <div>
@@ -39,25 +39,25 @@ export default function TodoList() {
             value={newTodo} 
             onChange={updateTodoValue}/>
             <br></br>
-            <button onClick={addNewTask}>Add Task</button>
+            <button className="add-btn" onClick={addNewTask}>Add Task</button>
             <br />
             <br />
             <br />
 
             <hr />
-            <h4>tasks todo</h4>
+            <h4>TODO APP</h4>
             <ul>
                 {todos.map((todo) => (
 
                    <li key={todo.id}>
                     <span>{todo.task}</span>
                     &nbsp;&nbsp;&nbsp;
-                    <button onClick={()=>deleteTodo(todo.id)}>delete</button>
+                    <button className="delete-btn" onClick={()=>deleteTodo(todo.id)}>delete</button>
                     </li>
                 ))}
             </ul>
             <br />
-            <button onClick={upperCaseAll}>UpperCase All</button>
+            <button className="action-btn" onClick={upperCaseAll}>UpperCase All</button>
         </div>
     )
 } 
